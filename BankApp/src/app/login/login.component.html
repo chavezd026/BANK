@@ -1,0 +1,32 @@
+<div class="section">
+    <div class="container">
+        <div class="row full-height justify-content-center">
+            <div class="section  text-center">
+                <div class="card-front">
+                    <div class="center-wrap">
+                        <div class="section text-center ">
+                            <div class="header">
+                                <h3>My Bank</h3>
+                                <h6>{{aim}}</h6> 
+                                <!-- string interpolation -->
+                            </div>
+                            <div [formGroup]="loginForm" class="form-group">
+                                <input formControlName="acno" class="form-style" id="login_acno" type="text" [placeholder]="accountNo">
+                                <!-- property binding -->
+                                <div *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched" style="color: red;">Enter valid Account Number</div>
+                            </div>
+                            <div [formGroup]="loginForm" class="form-group">
+                                <input formControlName="pswd" class="form-style" id="login_pswd" type="password" placeholder="Password">
+                                <div *ngIf="this.loginForm.get('pswd')?.errors && this.loginForm.get('pswd')?.touched" style="color: red;">Password must be in numbers or letters</div>
+                            </div>
+                            <input class="btn" type="button" value="Login" (click)="Login()">    
+                            <div class="or">
+                                <a routerLink="register">Sign up</a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

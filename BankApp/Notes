@@ -1,0 +1,118 @@
+                                    Angular
+
+                                Bank App In Angular
+
+                        Front end : Angular
+                        Back end : Nodejs(Express)
+                        DataBase : MongoDb
+
+        Basic Building Blocks
+
+        1. Module : To import 3rd party libraries
+        2. Component : to create html css and ts files
+
+        Basic Commands
+
+1. Create a project : ng new project_name
+2. Create a component : ng g c component_name
+3. Run : ng serve --open
+
+[1] Data Binding : To share data inside the component
+
+ts : component and html : view
+
+        [1.1] One way data binding ( ts => html OR html => ts file )
+
+                [a] Component to view
+                        [a.1] String interpolation : {{expression}}
+                        [a.2] Property binding : [attribute_name]="property"
+
+                [b] View to component
+                        [b.1] Event binding : (event_name)="function name"
+                        [b.2] Event binding using $event : (event_name)="function name($event)"
+                        [b.3] Event binding using template referencing variable : #variable name
+
+        [1.2] Two way data binding ( ts => html and html => ts )
+
+                Data share in both direction
+
+                ngModel(library) : import from Formsmodule
+                import ngModel from Formsmodule
+                
+ [2] Angular routing : to set path for a component
+        
+        {
+                path:'',component:LoginComponent
+        },
+        {
+                path:'dashboard',component:DashboardComponent
+        },
+        {
+                path:'register',component:SignUpComponent
+        }
+
+                                    
+
+ [3] Dependency injection : to share data between two components
+        
+        Here we use constructor to achieve this concept
+
+        eg:login to dashboard                
+
+[4] Angular Services  :  to hold redundant data
+
+        to create a service in angular : ng g s service_name
+
+[5] Angular Directives : To manipulate DOM 
+
+        [5.1] Component Directives
+
+        [5.2] Structural Directives
+
+        (eg: table structure)
+
+                [a] *ngFor
+
+[6] Angular Forms
+
+        [6.1] Template driven forms (designing of html page)
+
+        [6.2] Model driven forms (ts file model , design => html page)
+
+        For advanced validation
+
+                [a] Reactive Forms Module
+
+                        - group ,array,controller
+                        - import Reactive Forms module
+
+[7] Local Storage
+
+        [1] setItem
+        [2] getItem
+        [3] removeItem
+
+[8] Parent Child Communication
+
+        Parent - DashboardComponent
+        child - DeleteComponent
+
+        parent to child Communication - @Input()
+        child to parent Communication - @Output()
+
+[9] Angular Pipes
+
+[10] Frontend and Backend Connection
+
+        HTTPClientMoodule -
+        [10.1] Import httpclientModule in app.module.ts
+        [10.2] Inject httpclientModule in DataService
+        [10.3] using httpclient to make API calls
+
+[11] Asynchronous call - RxJs
+
+        RxJs - Reactive Extension for JavaScript
+                        Ts                         Js
+                    OBSERVABLE                   PROMISE
+        1)Resolve : subscribe()                   then()
+        2)Reject  : catch                         catch

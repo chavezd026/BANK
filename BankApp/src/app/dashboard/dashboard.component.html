@@ -1,0 +1,59 @@
+<div class="section">
+    <div class="container">
+        <input type="button" class="btn1" value="Logout" (click)="logout()" style="float: right;">
+<input type="button" class="btn2" value="Delete" (click)="delete()" style="float: right;">
+<app-delete [item]="acno" (OnCancel)="onCancel()" (OnDelete)="onDelete($event)"></app-delete>
+<h1>Welcome {{user}}</h1>
+<a routerLink="/transaction">View history</a>
+<h4>System date: {{sdate|date:'short'}}</h4>
+        <div class="row full-height justify-content-center">
+            
+            <div class="section  text-center">
+                <div class="card-front">
+                    <div class="center-wrap">
+                        <div class="section text-center ">
+                            <div [ngClass]="acno ? 'style1': '' " class="parent">
+                                <div class="child">
+                                    <div class="header">
+                                        <h3>Deposit</h3>
+                                    </div>
+                                    <div class="form-group" [formGroup]="depositForm">
+                                        <input formControlName="acno" class="form-style" type="text" id="depo_acno" placeholder="Account number">
+                                        <div *ngIf="this.depositForm.get('acno')?.errors && this.depositForm.get('acno')?.touched" style="color: red;">Account number required </div>
+                                </div>
+                                <div class="form-group" [formGroup]="depositForm">
+                                    <input formControlName="pswd" class="form-style" type="password" id="depo_pswd" placeholder="Password">
+                                    <div *ngIf="this.depositForm.get('pswd')?.errors && this.depositForm.get('pswd')?.touched" style="color: red;">Password required</div>
+                                </div>
+                                <div class="form-group" [formGroup]="depositForm">
+                                    <input formControlName="amount" class="form-style" type="text" id="depo_name" placeholder="Amount">
+                                    <div *ngIf="this.depositForm.get('amount')?.errors && this.depositForm.get('amount')?.touched" style="color: red;">Please enter amount</div>
+                                </div>
+                                <input class="btn" type="button" value="Deposit" (click)="deposit()">
+                            </div>
+                            <br>
+                            <div class="child">
+                                <div class="header">
+                                    <h3>Withdraw</h3>
+                                </div>
+                                <div class="form-group" [formGroup]="withdrawForm">
+                                    <input formControlName="acno" class="form-style" type="text" id="with_acno" placeholder="Account number">
+                                    <div *ngIf="this.withdrawForm.get('acno')?.errors && this.withdrawForm.get('acno')?.touched" style="color: red;">Account number required</div>
+                                </div>
+                                <div class="form-group" [formGroup]="withdrawForm">
+                                    <input formControlName="pswd" class="form-style" type="password" id="with_pswd" placeholder="Password">
+                                    <div *ngIf="this.withdrawForm.get('pswd')?.errors && this.withdrawForm.get('pswd')?.touched" style="color: red;">Password required</div>
+                                </div>
+                                <div class="form-group" [formGroup]="withdrawForm">
+                                    <input formControlName="amount" class="form-style" type="text" id="with_name" placeholder="Amount">
+                                    <div *ngIf="this.withdrawForm.get('amount')?.errors && this.withdrawForm.get('amount')?.touched" style="color: red;">Please enter amount</div>
+                                </div>
+                                <input class="btn" type="button" value="Withdraw" (click)="withdraw()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
